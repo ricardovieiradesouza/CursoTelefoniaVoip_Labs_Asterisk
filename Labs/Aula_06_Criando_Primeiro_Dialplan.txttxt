@@ -1,0 +1,9 @@
+[general]
+static=yes
+writeprotect=no
+
+
+[Padrao]
+exten => _1XXX,1,NoOp(Chamada entre ramais)
+same => n,Dial(SIP/${EXTEN},45,tT)
+same => n,HanGup()
