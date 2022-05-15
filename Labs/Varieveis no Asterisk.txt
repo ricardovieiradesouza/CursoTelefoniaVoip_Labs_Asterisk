@@ -1,0 +1,26 @@
+[globals]
+LR=20
+
+
+
+;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;Teste de variavel
+exten => 10,1,Set(COUNT=10)
+same => n,Answer()
+same => n,NoOp(Fala o numero ${COUNT})
+same => n,Playback(good-evening)
+same => n,SayNumber(${COUNT})
+same => n,Hangup()
+
+
+[Padrao]
+exten => _1XXX,1,NoOp(Chamada entre ramais)
+same => n,Set(CHANNEL(ACCOUNTCODE)=${EXTEN})
+
+
+same => n,Set(ramal=${CHANNEL(useragent)})
+same => n,NoOp(O Ramal ${CALLERID(num)} ligou utilizando ${ramal})
+
+same => n,Macro(gravacao,${CALLERID(num)},${EXTEN})
+same => n,Dial(SIP/${EXTEN},${LR},tT)
+same => n,HanGup()
