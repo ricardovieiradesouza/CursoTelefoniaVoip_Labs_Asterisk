@@ -7,3 +7,5 @@ writeprotect=no
 exten => _1XXX,1,NoOp(Chamadas entre ramais)
 same => n,Dial(SIP/${EXTEN},45,tT)
 same => n,HanGup()
+
+
