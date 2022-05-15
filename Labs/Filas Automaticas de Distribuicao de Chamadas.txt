@@ -1,0 +1,34 @@
+;facilidades.conf
+
+exten => 14,1,NoOp(Ligando para fila Suporte)
+same => n,Progress()
+same => n,Queue(Suporte)
+same => n,Hangup()
+
+
+exten => 15,1,NoOp(Ligando para fila Atendimento)
+same => n,Progress()
+same => n,Queue(Atendimento)
+same => n,Hangup()
+
+
+;#############################################################
+;#############################################################
+queues.conf
+
+[Suporte]
+strategy=rrmemory
+maxlen=0 ;Número máximo de pessoas esperando na fila (0 para ilimitado)
+ringinuse=no ;Impede que o agente receba uma segunda chamada
+
+member => SIP/1000
+member => SIP/1002
+
+
+[Atendimento]
+strategy=rrmemory
+maxlen=0 ;Número máximo de pessoas esperando na fila (0 para ilimitado)
+ringinuse=no ;Impede que o agente receba uma segunda chamada
+
+member => SIP/1000
+member => SIP/1002
