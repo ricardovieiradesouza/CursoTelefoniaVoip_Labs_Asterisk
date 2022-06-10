@@ -1,0 +1,32 @@
+
+
+wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-XXXXXXXX
+
+tar -zxvf asterisk-XXXXXXXXX.tar.gz
+
+
+cd asterisk-XXXXXXXXXX
+
+cd contrib/scripts/
+
+./install_prereq install
+
+cd ../../
+
+./configure --with-jansson-bundled --with-pjproject-bundled
+
+make menuselect
+
+make
+
+make install
+
+make samples
+
+make config
+
+ldconfig
+
+systemctl enable asterisk
+systemctl start asterisk
+systemctl status asterisk
