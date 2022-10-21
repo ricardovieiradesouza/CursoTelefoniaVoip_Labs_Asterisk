@@ -1,4 +1,4 @@
-
+Caso seja serviodor Centos, desabilitar o Selinux
 
 wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-XXXXXXXX
 
