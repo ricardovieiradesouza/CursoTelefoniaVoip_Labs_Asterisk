@@ -1,4 +1,4 @@
-
+Desativar Selinux no Centos
 
 wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-XXXXXXXX
 
